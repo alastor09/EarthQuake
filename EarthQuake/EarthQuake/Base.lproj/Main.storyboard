@@ -39,19 +39,17 @@
                     <navigationItem key="navigationItem" id="a0G-Cg-9vW"/>
                     <connections>
                         <outlet property="mapView" destination="Xvk-Ao-N2p" id="pq5-kv-Ip3"/>
-                        <segue destination="63r-uf-Nxp" kind="popoverPresentation" identifier="detailPopoverSegue" popoverAnchorView="Xvk-Ao-N2p" id="2hm-uo-BAq">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="63r-uf-Nxp" kind="show" identifier="detailPopoverSegue" id="2hm-uo-BAq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.8" y="359.37031484257875"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Earth Quake Detail Table View Controller-->
         <scene sceneID="mY2-kB-qVP">
             <objects>
-                <tableViewController id="63r-uf-Nxp" sceneMemberID="viewController">
+                <tableViewController id="63r-uf-Nxp" customClass="EarthQuakeDetailTableViewController" customModule="EarthQuake" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="q82-dQ-deP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,13 +79,30 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" id="rN4-7v-Mcl">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="200" id="rN4-7v-Mcl" customClass="MapTableViewCell" customModule="EarthQuake" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rN4-7v-Mcl" id="cJ3-ah-jm3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-RF-0ua">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="rN4-7v-Mcl" id="LXg-Ya-O5Z"/>
+                                            </connections>
+                                        </mapView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="EUD-RF-0ua" secondAttribute="trailing" id="Ebi-fw-dtQ"/>
+                                        <constraint firstItem="EUD-RF-0ua" firstAttribute="top" secondItem="cJ3-ah-jm3" secondAttribute="top" id="HAK-eh-Za4"/>
+                                        <constraint firstAttribute="bottom" secondItem="EUD-RF-0ua" secondAttribute="bottom" id="PXv-PP-8jt"/>
+                                        <constraint firstItem="EUD-RF-0ua" firstAttribute="leading" secondItem="cJ3-ah-jm3" secondAttribute="leading" id="r78-en-zFE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mapView" destination="EUD-RF-0ua" id="lHq-DD-zyo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

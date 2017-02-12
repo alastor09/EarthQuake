@@ -23,14 +23,14 @@ class EarthQuakeModelManager{
     
     func fetchEarthQuakeModelForLocation(longitude: String, latitude: String) -> EarthQuakeModel {
        let arrOfModels = arrayOfEarthQuakeModels.filter { (earthQuakeModelObject) -> Bool in
-            if(earthQuakeModelObject.lon == longitude && earthQuakeModelObject.lat == latitude){
+            if(Double(earthQuakeModelObject.lon!) == Double(longitude) && Double(earthQuakeModelObject.lat!) == Double(latitude)){
                 return true
             }
             else{
                 return false
             }
         }
-        return arrOfModels.first!
+        return arrayOfEarthQuakeModels.first!
     }
 }
 
