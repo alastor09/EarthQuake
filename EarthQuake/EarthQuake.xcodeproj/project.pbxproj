@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1618BDB01E5090DE00E22B34 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618BDAF1E5090DE00E22B34 /* MapTableViewCell.swift */; };
+		1606300B1E51996500175F69 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1606300A1E51996500175F69 /* MapTableViewCell.swift */; };
 		167407071E504C0F00F0CC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167407061E504C0F00F0CC8B /* AppDelegate.swift */; };
 		1674070E1E504C0F00F0CC8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1674070C1E504C0F00F0CC8B /* Main.storyboard */; };
 		167407101E504C0F00F0CC8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1674070F1E504C0F00F0CC8B /* Assets.xcassets */; };
@@ -42,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1618BDAF1E5090DE00E22B34 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		1606300A1E51996500175F69 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
 		167407031E504C0F00F0CC8B /* EarthQuake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthQuake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167407061E504C0F00F0CC8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1674070D1E504C0F00F0CC8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,12 +90,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1618BDAE1E5090C300E22B34 /* MapCell */ = {
+		160630091E51996500175F69 /* DetailTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				1618BDAF1E5090DE00E22B34 /* MapTableViewCell.swift */,
+				1606300A1E51996500175F69 /* MapTableViewCell.swift */,
 			);
-			path = MapCell;
+			path = DetailTableViewCells;
 			sourceTree = "<group>";
 		};
 		167406FA1E504C0F00F0CC8B = {
@@ -165,7 +165,7 @@
 		167407381E504E9E00F0CC8B /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				1618BDAE1E5090C300E22B34 /* MapCell */,
+				160630091E51996500175F69 /* DetailTableViewCells */,
 				1674073A1E504E9E00F0CC8B /* MapViewController.swift */,
 				1674074D1E5082CD00F0CC8B /* EarthQuakeDetailTableViewController.swift */,
 			);
@@ -348,7 +348,7 @@
 				1674073F1E504EFE00F0CC8B /* GetBaseAPIClient.swift in Sources */,
 				1674073C1E504E9E00F0CC8B /* MapViewController.swift in Sources */,
 				1674074C1E50664700F0CC8B /* ModelManager.swift in Sources */,
-				1618BDB01E5090DE00E22B34 /* MapTableViewCell.swift in Sources */,
+				1606300B1E51996500175F69 /* MapTableViewCell.swift in Sources */,
 				167407481E50548200F0CC8B /* EarthQuakeModel.swift in Sources */,
 				167407451E5051BB00F0CC8B /* Delegates.swift in Sources */,
 				1674074E1E5082CD00F0CC8B /* EarthQuakeDetailTableViewController.swift in Sources */,

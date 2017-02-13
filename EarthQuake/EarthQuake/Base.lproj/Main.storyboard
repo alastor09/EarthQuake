@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Map View Controller-->
+        <!--Earth Quake Data-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="MapViewController" customModule="EarthQuake" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,18 @@
                             <constraint firstItem="Xvk-Ao-N2p" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="xhp-A8-oJP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="a0G-Cg-9vW"/>
+                    <navigationItem key="navigationItem" title="Earth Quake Data" id="a0G-Cg-9vW">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="CfZ-nh-OZw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V2Q-Po-09s">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshData:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="y9r-CT-Z0D"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Xvk-Ao-N2p" id="pq5-kv-Ip3"/>
                         <segue destination="63r-uf-Nxp" kind="show" identifier="detailPopoverSegue" id="2hm-uo-BAq"/>
@@ -50,13 +61,13 @@
         <scene sceneID="mY2-kB-qVP">
             <objects>
                 <tableViewController id="63r-uf-Nxp" customClass="EarthQuakeDetailTableViewController" customModule="EarthQuake" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="q82-dQ-deP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="q82-dQ-deP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtitleCell" textLabel="dvI-sf-Wda" detailTextLabel="STL-eY-PV5" style="IBUITableViewCellStyleSubtitle" id="GuK-QO-R3Z">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GuK-QO-R3Z" id="tjI-iO-nOo">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -80,7 +91,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="200" id="rN4-7v-Mcl" customClass="MapTableViewCell" customModule="EarthQuake" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rN4-7v-Mcl" id="cJ3-ah-jm3">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>

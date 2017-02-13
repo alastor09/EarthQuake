@@ -20,17 +20,22 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        EarthQuakeModelManager.shared.retreiveEarthQuakeData()
         EarthQuakeModelManager.shared.delegate = self
+        EarthQuakeModelManager.shared.retreiveEarthQuakeData()
 
         locateMe()
+    }
+    @IBAction func refreshData(_ sender: Any) {
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        EarthQuakeModelManager.shared.delegate = self
+        EarthQuakeModelManager.shared.retreiveEarthQuakeData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "detailPopoverSegue"){
             let annotationview = sender as! MKAnnotationView
             let destinationController: EarthQuakeDetailTableViewController = segue.destination as! EarthQuakeDetailTableViewController
-            destinationController.earthQuakeObject = EarthQuakeModelManager.shared.fetchEarthQuakeModelForLocation(longitude: "\(annotationview.annotation?.coordinate.longitude)", latitude: "\(annotationview.annotation?.coordinate.latitude)")
+            destinationController.earthQuakeObject = EarthQuakeModelManager.shared.fetchEarthQuakeModelForLocation(longitude: (annotationview.annotation?.coordinate.longitude)!, latitude: (annotationview.annotation?.coordinate.latitude)!)
         }
     }
     
@@ -92,7 +97,7 @@ extension MapViewController : EarthQuakeDataRetreivedDelegate{
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        let identifier = "Sample"
+        let identifier = "infoView"
         if(annotation.coordinate.longitude == currentLocation.longitude && annotation.coordinate.latitude == currentLocation.latitude){
             return nil
         }

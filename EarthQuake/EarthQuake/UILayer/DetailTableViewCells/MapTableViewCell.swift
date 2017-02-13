@@ -17,7 +17,8 @@ class MapTableViewCell: UITableViewCell, MKMapViewDelegate {
     var currentLocation = CLLocationCoordinate2D()
     var earthQuakeLocation = CLLocationCoordinate2D()
     
-    
+    var delegate: EarthQuakeDistanceDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -69,10 +70,10 @@ extension MapTableViewCell: CLLocationManagerDelegate{
     }
     
     func updateLocationOnView() {
-        let startLatitude = Double(currentLocation.latitude)
-        let startLongitude = Double(currentLocation.longitude)
+        let currentLatitude = Double(currentLocation.latitude)
+        let currentLongitude = Double(currentLocation.longitude)
         
-        let startCoordinates = CLLocationCoordinate2DMake(startLatitude, startLongitude)
+        let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
         
         let earthQuakeLatitude = Double(earthQuakeLocation.latitude)
         let earthQuakeLongitude = Double(earthQuakeLocation.longitude)
@@ -80,17 +81,25 @@ extension MapTableViewCell: CLLocationManagerDelegate{
         let earthQuakeCoordinates = CLLocationCoordinate2DMake(earthQuakeLatitude, earthQuakeLongitude)
         
         let span = MKCoordinateSpanMake(0.2,0.2)
-        let region = MKCoordinateRegion(center: startCoordinates, span: span)
+        let region = MKCoordinateRegion(center: currentCoordinates, span: span)
         
         mapView.setRegion(region, animated: true)
         
         let objectStartAnnotation = MKPointAnnotation()
-        objectStartAnnotation.coordinate = startCoordinates
+        objectStartAnnotation.coordinate = currentCoordinates
+        objectStartAnnotation.title = "Current Location"
         self.mapView.addAnnotation(objectStartAnnotation)
         
         let objectEarthQuakeAnnotation = MKPointAnnotation()
         objectEarthQuakeAnnotation.coordinate = earthQuakeCoordinates
+        objectEarthQuakeAnnotation.title = "EarthQuake Location"
         self.mapView.addAnnotation(objectEarthQuakeAnnotation)
+        
+        let earthQuakeLoc = CLLocation(latitude: earthQuakeLatitude, longitude: earthQuakeLongitude)
+        let currentLoc = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
+        
+        let distanceKiloMeters = (earthQuakeLoc.distance(from: currentLoc))/1000
+        delegate?.earthQuakeDistanceRetreived(earthQuakeDist: distanceKiloMeters)
         
         self.zoomToFitMapAnnotations(aMapView: self.mapView)
     }

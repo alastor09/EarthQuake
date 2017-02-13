@@ -12,3 +12,7 @@ protocol EarthQuakeDataRetreivedDelegate {
     func successfullyfetchedObjectsFromServer(earthQuakeArray: [EarthQuakeModel])
     func errorfetchingObjectsFromServer()
 }
+
+protocol EarthQuakeDistanceDelegate {
+    func earthQuakeDistanceRetreived(earthQuakeDist: Double)
+}

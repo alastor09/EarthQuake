@@ -21,16 +21,16 @@ class EarthQuakeModelManager{
         fetchEarthQuakeData.fetchDataFromURLRequest()
     }
     
-    func fetchEarthQuakeModelForLocation(longitude: String, latitude: String) -> EarthQuakeModel {
+    func fetchEarthQuakeModelForLocation(longitude: Double, latitude: Double) -> EarthQuakeModel {
        let arrOfModels = arrayOfEarthQuakeModels.filter { (earthQuakeModelObject) -> Bool in
-            if(Double(earthQuakeModelObject.lon!) == Double(longitude) && Double(earthQuakeModelObject.lat!) == Double(latitude)){
+            if(Double(earthQuakeModelObject.lon!) == longitude && Double(earthQuakeModelObject.lat!) == latitude){
                 return true
             }
             else{
                 return false
             }
         }
-        return arrayOfEarthQuakeModels.first!
+        return arrOfModels.first!
     }
 }
 
